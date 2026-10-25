@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      font-family: sans-serif;
+    }
+    .btn-copy {
+      background-color: #2b3a4a;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-copy:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="btn-copy" id="copyBtn" onclick="salinNomor()">
+    Salin Nomor Rekening
+  </button>
+
+  <script>
+    function salinNomor() {
+      const nomor = "1234567890"; // Ganti dengan nomor rekeningmu
+      navigator.clipboard.writeText(nomor).then(() => {
+        const btn = document.getElementById("copyBtn");
+        btn.innerText = "✓ Berhasil Disalin!";
+        setTimeout(() => {
+          btn.innerText = "Salin Nomor Rekening";
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
